@@ -1,0 +1,423 @@
+@keyframes hue-rotate {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.gradient-text {
+    background: linear-gradient(to right,
+            #ff0000,
+            #ff7f00,
+            #ffff00,
+            #00ff00,
+            #0000ff,
+            #4b0082,
+            #8f00ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: hue-rotate 5s linear infinite;
+}
+
+.letter-animate {
+    display: inline-block;
+    animation: letter-wave 2s ease-in-out infinite;
+}
+
+@keyframes letter-wave {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        color: #ff0000;
+        text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    }
+
+    20% {
+        color: #ff7f00;
+        text-shadow: 0 0 10px rgba(255, 127, 0, 0.5);
+    }
+
+    40% {
+        color: #00ff00;
+        text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+
+    60% {
+        color: #0000ff;
+        text-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+    }
+
+    80% {
+        color: #4b0082;
+        text-shadow: 0 0 10px rgba(75, 0, 130, 0.5);
+    }
+
+    100% {
+        color: #ff0000;
+        text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    }
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        filter: brightness(100%);
+        transform: scale(1);
+    }
+
+    50% {
+        filter: brightness(120%);
+        transform: scale(1.05);
+    }
+}
+
+.animated-letter {
+    display: inline-block;
+    animation: colorChange 5s infinite;
+    transition: all 0.3s ease;
+}
+
+.animated-letter:hover {
+    animation: glow 1s ease-in-out infinite;
+    filter: brightness(130%);
+    text-shadow: 0 0 15px currentColor;
+}
+
+/* Create different delays for each letter */
+.animated-letter:nth-child(1) {
+    animation-delay: 0.0s;
+}
+
+.animated-letter:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.animated-letter:nth-child(3) {
+    animation-delay: 1.0s;
+}
+
+.animated-letter:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+.animated-letter:nth-child(5) {
+    animation-delay: 2.0s;
+}
+
+.animated-letter:nth-child(6) {
+    animation-delay: 2.5s;
+}
+
+.animated-letter:nth-child(7) {
+    animation-delay: 3.0s;
+}
+
+.animated-letter:nth-child(8) {
+    animation-delay: 3.5s;
+}
+
+/* Base animations for text and elements */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 15px rgba(16, 163, 127, 0.2);
+        border-color: rgba(78, 79, 96, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(16, 163, 127, 0.4);
+        border-color: rgba(16, 163, 127, 0.5);
+    }
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Cool text animations */
+.animated-text {
+    background: linear-gradient(45deg,
+            #ff6b6b,
+            #4ecdc4,
+            #45b7d1,
+            #96c93d,
+            #ff6b6b);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-shift 8s ease infinite;
+}
+
+.hover-float {
+    transition: all 0.3s ease;
+}
+
+.hover-float:hover {
+    transform: translateY(-5px);
+    filter: brightness(1.1);
+}
+
+/* Card effects */
+.card-glow {
+    width: 100%;
+    transition: all 0.3s ease;
+    background: rgba(64, 65, 79, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.card-glow:hover {
+    animation: pulse-glow 2s infinite;
+    transform: translateY(-2px);
+    background: rgba(64, 65, 79, 0.9);
+}
+
+/* Button styles */
+.cool-button {
+    background: linear-gradient(45deg,
+            #10A37F,
+            #1A7F64,
+            #10A37F);
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 15px rgba(16, 163, 127, 0.2);
+}
+
+.cool-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(16, 163, 127, 0.3);
+}
+
+/* Category cards */
+.category-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(64, 65, 79, 0.5);
+    backdrop-filter: blur(8px);
+}
+
+.category-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    background: rgba(64, 65, 79, 0.8);
+    box-shadow: 0 10px 25px rgba(16, 163, 127, 0.2);
+}
+
+/* Input field effects */
+.cool-input {
+    transition: all 0.3s ease;
+    background: rgba(32, 33, 35, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+.cool-input:focus {
+    box-shadow: 0 0 0 2px rgba(16, 163, 127, 0.3);
+    transform: scale(1.01);
+}
+
+/* Status indicators */
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10A37F;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(26, 27, 35, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(16, 163, 127, 0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(16, 163, 127, 0.7);
+}
+
+/* Loading animations */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.loading-shimmer {
+    background: linear-gradient(90deg,
+            rgba(64, 65, 79, 0.1) 25%,
+            rgba(64, 65, 79, 0.2) 37%,
+            rgba(64, 65, 79, 0.1) 63%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Modern tag styles */
+.tag {
+    background: rgba(16, 163, 127, 0.1);
+    color: #10A37F;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.tag:hover {
+    background: rgba(16, 163, 127, 0.2);
+    transform: scale(1.05);
+}
+
+/* Add these to your existing animations.css */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Add responsive container class */
+.container-fluid {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Add responsive padding utility */
+@media (min-width: 768px) {
+    .container-fluid {
+        padding: 0 1.5rem;
+    }
+}
+
+/* Update sidebar-related styles */
+:root {
+    --sidebar-width: 10px;
+}
+
+/* Add these layout-specific styles */
+.main-content {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    transition: margin-left 0.2s ease;
+}
+
+/* Adjust container max-width based on sidebar state */
+.content-container {
+    max-width: calc(1280px - var(--sidebar-width, 60px));
+    margin: 0 auto;
+    width: 100%;
+    transition: max-width 0.2s ease;
+}
+
+/* Enhance responsive behavior */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .content-container {
+        max-width: 100%;
+    }
+}
+
+/* Ensure content fills available space */
+.full-height {
+    height: 100vh;
+    height: 100dvh;
+    /* For mobile browsers */
+}
+
+/* Prevent overflow issues */
+.overflow-container {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Optimize sidebar hover states */
+.sidebar-icon {
+    @apply h-3.5 w-3.5 transition-transform duration-200;
+}
+
+.sidebar-item:hover .sidebar-icon {
+    transform: scale(1.1);
+}
+
+/* Enhance mobile responsiveness */
+@media (max-width: 640px) {
+    :root {
+        --sidebar-width: 36px;
+    }
+
+    .sidebar-icon {
+        @apply h-3 w-3;
+    }
+}

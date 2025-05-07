@@ -1,0 +1,220 @@
+/* Auth Pages Styling */
+.auth-container {
+    @apply min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-[#1a1b23] to-[#343541] p-4 relative overflow-hidden;
+}
+
+/* Glassmorphism */
+.glass-card {
+    @apply backdrop-blur-xl bg-white/10 rounded-2xl shadow-2xl p-8 border border-white/20 relative z-10 w-full max-w-md transition-all duration-300;
+}
+
+/* Form Elements */
+.form-input {
+    @apply w-full px-4 py-3 rounded-lg bg-white/10 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:border-[#10A37F] focus:ring-1 focus:ring-[#10A37F] transition-colors;
+}
+
+.form-label {
+    @apply block text-[#ECECF1] text-sm font-medium mb-2;
+}
+
+/* Buttons */
+.btn-primary {
+    @apply w-full py-3 px-4 bg-[#10A37F] hover:bg-[#0D8E6C] text-white rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#10A37F] focus:ring-offset-2 focus:ring-offset-[#1a1b23] hover:scale-[1.02] active:scale-[0.98];
+}
+
+.btn-social {
+    @apply w-full px-4 py-3 border border-white/10 rounded-lg backdrop-blur-xl bg-white/5 text-white font-medium hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-[0.98];
+}
+
+/* Animations */
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Background Effects */
+.bg-gradient-blur {
+    @apply absolute -z-10 blur-[120px] rounded-full opacity-50;
+}
+
+.bg-gradient-1 {
+    @apply bg-[#10A37F]/30 w-[80%] h-[80%] -top-[40%] -left-[20%];
+}
+
+.bg-gradient-2 {
+    @apply bg-[#4E4F60]/30 w-[80%] h-[80%] -bottom-[40%] -right-[20%];
+}
+
+/* Loading States */
+.loading-spinner {
+    @apply animate-spin h-5 w-5 text-white;
+}
+
+/* Error States */
+.error-message {
+    @apply text-red-400 text-sm mt-1;
+}
+
+/* Success States */
+.success-message {
+    @apply text-green-400 text-sm mt-1;
+}
+
+/* Add to existing styles */
+
+.perspective-1000 {
+    perspective: 1000px;
+}
+
+.rotate-y-180 {
+    transform: rotateY(180deg);
+}
+
+.preserve-3d {
+    transform-style: preserve-3d;
+}
+
+.backface-hidden {
+    backface-visibility: hidden;
+}
+
+/* Smooth flip transition */
+.flip-card {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Enhanced glass effect during flip */
+.glass-card {
+    transform-style: preserve-3d;
+    transition: transform 0.6s, backdrop-filter 0.3s;
+}
+
+.glass-card:hover {
+    backdrop-filter: blur(16px);
+}
+
+/* Glowing card effect */
+.glow-card {
+    position: relative;
+}
+
+.glow-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(35deg,
+            #10A37F,
+            transparent,
+            transparent,
+            #4E4F60);
+    border-radius: inherit;
+    animation: glowRotate 3s linear infinite;
+    filter: blur(8px);
+    opacity: 0.5;
+}
+
+.glow-card::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(35deg,
+            #4E4F60,
+            transparent,
+            transparent,
+            #10A37F);
+    border-radius: inherit;
+    animation: glowRotate 3s linear infinite reverse;
+    filter: blur(8px);
+    opacity: 0.5;
+}
+
+/* Glow animations */
+@keyframes glowRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Pulse animations */
+.animate-pulse-slow {
+    animation: pulseSlow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-pulse-slower {
+    animation: pulseSlow 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulseSlow {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+}
+
+/* Enhanced glass effect */
+.glass-card {
+    position: relative;
+    backdrop-filter: blur(16px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow:
+        0 8px 32px 0 rgba(31, 38, 135, 0.37),
+        inset 0 0 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 8px 32px 0 rgba(31, 38, 135, 0.45),
+        inset 0 0 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+/* Floating elements */
+.floating-element {
+    position: absolute;
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+
+/* Input field glow */
+.form-input:focus {
+    box-shadow: 0 0 15px rgba(16, 163, 127, 0.3);
+}
+
+/* Button glow */
+.btn-primary:hover {
+    box-shadow: 0 0 20px rgba(16, 163, 127, 0.4);
+}
+
+/* Social button glow */
+.btn-social:hover {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}

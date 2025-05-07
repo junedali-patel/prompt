@@ -1,0 +1,398 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 142.1 76.2% 36.3%;
+    --primary-foreground: 355.7 100% 97.3%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 142.1 76.2% 36.3%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* ChatGPT exact colors */
+    --chat-bg: 0 0% 100%;
+    --chat-border: 0 0% 90%;
+    --primary-btn: 235 12% 19%;
+    --primary-btn-hover: 235 12% 24%;
+
+    /* Message backgrounds */
+    --user-msg-bg: 0 0% 98%;
+    --assistant-msg-bg: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 24 9.8% 10%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 142.1 70.6% 45.3%;
+    --primary-foreground: 144.9 80.4% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 142.4 71.8% 29.2%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* ChatGPT exact colors */
+    --chat-bg: 220 10% 10%;
+    --sidebar-bg: 220 10% 7%;
+    --chat-border: 220 10% 15%;
+    --primary-btn: 0 0% 100%;
+    --primary-btn-hover: 0 0% 90%;
+
+    /* Message backgrounds */
+    --user-msg-bg: 220 10% 13%;
+    --assistant-msg-bg: 220 10% 10%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Smooth transitions for theme changes */
+* {
+  @apply transition-colors duration-200;
+}
+
+/* ChatGPT-like animations */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  .animate-scale {
+    animation: scale 0.2s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scale {
+  from {
+    transform: scale(0.95);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+/* ChatGPT-specific styles */
+.chatgpt-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--chat-border)) transparent;
+}
+
+.chatgpt-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chatgpt-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chatgpt-scrollbar::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--chat-border));
+  border-radius: 10px;
+}
+
+/* Button Styles */
+@layer components {
+  .chatgpt-button {
+    @apply px-4 py-2 rounded-lg transition-all duration-200 font-medium relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#10a37f] dark:focus:ring-[#10a37f];
+  }
+
+  .chatgpt-button-primary {
+    @apply bg-[#10a37f] text-white hover:bg-[#1a7f64] active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .chatgpt-button-secondary {
+    @apply bg-[#40414F] text-white hover:bg-[#202123] dark:bg-[#40414F] dark:text-white dark:hover:bg-[#202123];
+  }
+
+  .chatgpt-button-outline {
+    @apply border border-[#4E4F60]/30 bg-transparent hover:bg-[#40414F]/10 dark:hover:bg-[#202123]/50;
+  }
+}
+
+/* Input Styles */
+@layer components {
+  .chatgpt-input {
+    @apply w-full rounded-lg border border-[#4E4F60]/30 bg-[#40414F]/5 dark:bg-[#40414F] px-4 py-2 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#10a37f] transition-all duration-200;
+  }
+}
+
+/* Animations */
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.3s ease-out forwards;
+  }
+
+  .animate-fade-down {
+    animation: fadeDown 0.3s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out forwards;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.3s ease-out forwards;
+  }
+
+  .animate-scale {
+    animation: scale 0.2s ease-out forwards;
+  }
+
+  .animate-pulse-once {
+    animation: pulseOnce 1.5s ease-in-out;
+  }
+}
+
+/* Keyframes */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scale {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseOnce {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Scrollbar Styles */
+.chatgpt-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--chat-border)) transparent;
+}
+
+.chatgpt-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.chatgpt-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chatgpt-scrollbar::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--chat-border));
+  border-radius: 10px;
+}
+
+.chatgpt-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--chat-border));
+}
+
+/* Loading Animation */
+.loading-dots::after {
+  content: '...';
+  animation: loading 1.5s steps(4, end) infinite;
+}
+
+@keyframes loading {
+  0% {
+    content: '';
+  }
+
+  25% {
+    content: '.';
+  }
+
+  50% {
+    content: '..';
+  }
+
+  75% {
+    content: '...';
+  }
+}
+
+/* Hover Effects */
+.hover-scale {
+  @apply transition-transform duration-200 hover:scale-105;
+}
+
+.hover-lift {
+  @apply transition-all duration-200 hover:-translate-y-1 hover:shadow-lg;
+}
+
+/* Message Styles */
+.message-container {
+  @apply px-4 py-6 text-gray-900 dark:text-gray-100 border-b border-[#4E4F60]/30;
+}
+
+.user-message {
+  @apply bg-[#F7F7F8] dark:bg-[#444654];
+}
+
+.assistant-message {
+  @apply bg-white dark:bg-[#343541];
+}
+
+/* Sidebar Styles */
+.sidebar-item {
+  @apply flex items-center gap-3 rounded-lg px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-[#40414F]/10 dark:hover:bg-[#40414F] transition-colors duration-200;
+}
+
+.sidebar-item-active {
+  @apply bg-[#40414F]/10 dark:bg-[#40414F] text-gray-900 dark:text-white;
+}
