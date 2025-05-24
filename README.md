@@ -1,18 +1,4 @@
-# Welcome to your Lovable project
-
-## Project info
-
-**URL**: https://lovable.dev/projects/477274ad-685a-4155-a955-f96fba2b4354
-
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/477274ad-685a-4155-a955-f96fba2b4354) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
+# Welcome to PROMPT- AI
 
 **Use your preferred IDE**
 
