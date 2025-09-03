@@ -25,4 +25,4 @@ dist-ssr
 serviceAccountKey.json.json
 serviceAccountKey.json.json
 
-*.env
+.env
